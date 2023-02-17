@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
+import Card from './card/Card';
 import './news.css';
 
-function News() {
+let News = () => {
     let newsArray = [
         {
-            source: {
-                id: 1,
-                name: "Medium"
-            },
+            id: 1,
             author: "insider@insider.com (Emily McDermott)",
             title: "I've made $210,000 in less than 2 years selling spreadsheet templates on Etsy. Here are 5 easy-to-follow tips for making sales.",
             description: "Emily McDermott sells spreadsheet templates on her Etsy shop. She shares her best tips for getting your shop noticed on the platform",
@@ -17,10 +15,7 @@ function News() {
             content: "In under two years, I've made CA$280,600 or around $210,000 on Etsy selling spreadsheet templates for Google Sheets and Excel.\r\nI'm not a spreadsheet expert by any means, but I do know how to find di… [+4490 chars]"
         },
         {
-            source: {
-                id: 2,
-                name: "Moz.com"
-            },
+            id: 2,
             author: "Emilie Martin",
             title: "Daily SEO Fix: Investigating Keyword Cannibalization",
             description: "In this Daily SEO Fix edition, we take you through what keyword cannibalization is, how to investigate it on your own website, and how to solve any potential issues your site may have.",
@@ -30,10 +25,7 @@ function News() {
             content: "Keyword cannibalization occurs when a website has too many similar keywords spread throughout the various pages on that site. This can harm the SEO potential of the pages involved, and can quite ofte… [+1550 chars]"
         },
         {
-            source: {
-                id: 3,
-                name: "Search Engine Journal"
-            },
+            id: 3,
             author: "Angie Nikoleychuk",
             title: "Top 7 SEO Keyword Research Tools For Agencies via @sejournal, @Juxtacognition",
             description: "Keyword research can be time-consuming. These tools help you find the data and spot the opportunities for successful SEO campaigns.\nThe post Top 7 SEO Keyword Research Tools For Agencies appeared first on Search Engine Journal.",
@@ -43,10 +35,7 @@ function News() {
             content: "All successful SEO campaigns rely on accurate, comprehensive data. And that process starts with the right keyword research tools.\r\nSure, you can get away with collecting keyword data manually on your… [+16882 chars]"
         },
         {
-            source: {
-                id: 4,
-                name: "Search Engine Journal"
-            },
+            id: 4,
             author: "Loren Baker",
             title: "How To Supercharge Your Keyword Research With Powerful Topic Clustering via @sejournal, @lorenbaker",
             description: "Learn 2 different ways to build a better keyword universe for your marketing efforts and drive more traffic to your website.\nThe post How To Supercharge Your Keyword Research With Powerful Topic Clustering appeared first on Search Engine Journal.",
@@ -56,10 +45,7 @@ function News() {
             content: "It’s common for marketers to target individual keywords when creating and optimizing content. Still, topic clusters are an even more powerful way to do keyword research.\r\nWith topic clustering, you c… [+3652 chars]"
         },
         {
-            source: {
-                id: 5,
-                name: "Pixelated-noise.com"
-            },
+            id: 5,
             author: null,
             title: "Routes don't look flat enough to me",
             description: "Exploring the slightly tricky problem of flattening reitit routes using multiple different approaches in #clojure",
@@ -69,10 +55,7 @@ function News() {
             content: "So one approach would be to use run-of-the-mill recursive Clojure to achieve\r\nthis:\r\n(defnflatten-routes-recursive [[path-part &amp; [sec :as rst] :as all]]\r\n (cond (keyword? sec) ; form 1\r\n {path-pa… [+3367 chars]"
         },
         {
-            source: {
-                id: 6,
-                name: "Hackaday"
-            },
+            id: 6,
             author: "Abe Connelly",
             title: "Illuminate Your Benched Things with this Death Stranding Lamp",
             description: "[Pinkman] creates a smart RGB table lamp based off of the “Odradek device” robot arm from the video game “Death Stranding”. [Pinkman] adds a XIAO BLE nRF52840 Sense device, with …read more",
@@ -82,10 +65,7 @@ function News() {
             content: "[Pinkman] creates a smart RGB table lamp based off of the “Odradek device” robot arm from the video game “Death Stranding”.\r\n[Pinkman] adds a XIAO BLE nRF52840 Sense device, with Bluetooth support, m… [+1214 chars]"
         },
         {
-            source: {
-                id: 7,
-                name: "Search Engine Journal"
-            },
+            id: 7,
             author: "Eduard Coromina",
             title: "How To Get More Traffic By Fixing Keyword Cannibalizations Quickly & Effectively",
             description: "Everyone is creating the same SEO-driven content to rank high on Google. It's time to set yourself apart by repairing SEO cannibalization.\nThe post How To Get More Traffic By Fixing Keyword Cannibalizations Quickly & Effectively appeared first on Search Engin…",
@@ -95,10 +75,7 @@ function News() {
             content: "This post was sponsored by DinoRANK. The opinions expressed in this article are the sponsor’s own.\r\nGoogle is a great source of qualified and recurring traffic for your business – that’s a fact.\r\nMan… [+7990 chars]"
         },
         {
-            source: {
-                id: 8,
-                name: "Small Business Trends"
-            },
+            id: 8,
             author: "Myra Nizami",
             title: "How to Make Money on TikTok in 2023: The 15 Best Ways",
             description: "Come up with an amazing meta description that includes the keyword 'how to make money on TikTok",
@@ -108,10 +85,7 @@ function News() {
             content: "TikTok is the short video-sharing platform that has taken the internet by storm in recent years and has quickly grown in popularity. The social media platform for short-form videos that span from fif… [+16456 chars]"
         },
         {
-            source: {
-                id: 9,
-                name: "Small Business Trends"
-            },
+            id: 9,
             author: "Lisa Price",
             title: "How to File Taxes for the 2022 Tax Year",
             description: "Come up with an amazing meta description that includes the keyword 'how to file taxes' near the beginning.",
@@ -121,10 +95,7 @@ function News() {
             content: "Its said that the longest journey starts with a single step.\r\nHow to file taxes? Whether youre going to file your own taxes, 0r use tax preparation services, your first step before you prepare and fi… [+7976 chars]"
         },
         {
-            source: {
-                id: 10,
-                name: "ReadWrite"
-            },
+            id: 10,
             author: "Erik Emanuelli",
             title: "Skyrocket Your Google Rankings With These 10 Awesome SEO Copywriting Tips",
             description: "If you want your website to rank higher in Google, you need to start paying attention to your SEO copywriting. In this blog post, we will discuss ten tips that will help you build content that ranks better in search engines. By following these tips, you can s…",
@@ -134,10 +105,7 @@ function News() {
             content: "If you want your website to rank higher in Google, you need to start paying attention to your SEO copywriting.\r\nIn this blog post, we will discuss ten tips that will help you build content that ranks… [+5737 chars]"
         },
         {
-            source: {
-                id: 11,
-                name: "Reuters"
-            },
+            id: 11,
             author: null,
             title: "Beyond the 'yips': Dallas kicker Maher faces mental battle in playoffs - Reuters",
             description: "Dallas Cowboys kicker Brett Maher must tame his inner nerves in Sunday's divisional round of the playoffs against the San Francisco 49ers, after a record four missed extra point attempts in his last outing shook fans to their core.",
@@ -147,10 +115,7 @@ function News() {
             content: "Jan 20 (Reuters) - Dallas Cowboys kicker Brett Maher must tame his inner nerves in Sunday's divisional round of the playoffs against the San Francisco 49ers, after a record four missed extra point at… [+2635 chars]"
         },
         {
-            source: {
-                id: 12,
-                name: "Android Central"
-            },
+            id: 12,
             author: "tips@androidcentral.com (Nickolas Diaz)",
             title: "Google expands SafeSearch and password protection in online safety efforts",
             description: "Google's latest update sheds light on its new and upcoming ways of protecting user data and strengthening online safety.",
@@ -160,10 +125,7 @@ function News() {
             content: "<ul><li>Google details new and upcoming ways it will bring increased data and safety measures to its service.</li><li>Google Password Manager, on supported computers, will gain a biometric authentica… [+2629 chars]"
         },
         {
-            source: {
-                id: 13,
-                name: "Business Insider"
-            },
+            id: 13,
             author: "insider@insider.com (Vartika Puranik)",
             title: "I made more than $877,000 in revenue last year selling emotional-intelligence card games online. Here's how I built my business.",
             description: "Jenny Woo's company, Mind Brain Emotion, started in 2018 with a Kickstarter campaign. She now sells seven products on her website and Amazon.",
@@ -173,10 +135,7 @@ function News() {
             content: "This as-told-to essay is based on a conversation with Jenny Woo, the 40-year-old founder of Mind Brain Emotion, from Irvine, California. Insider has verified her business' revenue with documentation.… [+6739 chars]"
         },
         {
-            source: {
-                id: 14,
-                name: "Search Engine Journal"
-            },
+            id: 14,
             author: "iQuanti",
             title: "An Easy 4-Step Guide To Improving SEO With Powerful Topic Clusters via @sejournal, @iQuanti",
             description: "Learn how to easily merge content and SEO to successfully rank at the top of search engine results pages (SERPs) using topic clusters.\nThe post An Easy 4-Step Guide To Improving SEO With Powerful Topic Clusters appeared first on Search Engine Journal.",
@@ -186,10 +145,7 @@ function News() {
             content: "This post was sponsored by iQuanti. The opinions expressed in this article are the sponsor’s own.\r\nWhat transforms a website from just a catalog of blog posts to a highly-organized hub of authoritati… [+9267 chars]"
         },
         {
-            source: {
-                id: 15,
-                name: "Entrepreneur"
-            },
+            id: 15,
             author: "Jigar Thakkar",
             title: "10 Crucial Marketing Tips for Online Businesses",
             description: "Boost your visibility and attract more customers with these proven strategies.",
@@ -199,10 +155,7 @@ function News() {
             content: "Starting an online business is great for bringing your products or services to a broader audience. However, the competition is fierce, and it can be difficult to stand out in the crowded online marke… [+3995 chars]"
         },
         {
-            source: {
-                id: 16,
-                name: "Techdirt"
-            },
+            id: 16,
             author: "Tim Cushing",
             title: "Colorado Supreme Court To Hear Challenge Of Reverse Keyword Warrant Served To Google",
             description: "Geofence warrants get all the hype. But Google also stores other data of interest to law enforcement: Google searches. With these warrants, law enforcement asks Google to search its repositories for certain searches performed by users. Once the government has…",
@@ -212,10 +165,7 @@ function News() {
             content: "from the searching-everyone-to-find-probable-cause dept\r\nGeofence warrants get all the hype. But Google also stores other data of interest to law enforcement: Google searches.\r\nWith these warrants, l… [+7746 chars]"
         },
         {
-            source: {
-                id: 17,
-                name: "MakeUseOf"
-            },
+            id: 17,
             author: "David Ekete",
             title: "How to Use Generators and Iterators in JavaScript",
             description: "Understand these fundamental behaviors and take your JavaScript programming to the next level.",
@@ -225,10 +175,7 @@ function News() {
             content: "Iterating over data collections using traditional loops can quickly become cumbersome and slow, especially when dealing with massive amounts of data.\r\nJavaScript Generators and Iterators provide a so… [+9017 chars]"
         },
         {
-            source: {
-                id: 18,
-                name: "MakeUseOf"
-            },
+            id: 18,
             author: "David Ekete",
             title: "How to Use Namespaces in TypeScript",
             description: "Avoiding naming clashes can be awkward and lead to unwieldy code, but namespaces offer a convenient solution.",
@@ -238,10 +185,7 @@ function News() {
             content: "A naming collision occurs when two or more code components use the same name for a variable, function, or class. They are common in large projects where many people work on the same codebase. They ca… [+6414 chars]"
         },
         {
-            source: {
-                id: 19,
-                name: "The Guardian"
-            },
+            id: 19,
             author: "Josh Taylor",
             title: "Some popular accounts likely to disappear from Twitter as Elon Musk ends free access to API",
             description: "Move to pay-for-access application program interface continues platform owner’s push for revenue<ul><li>Follow our Australia news live blog for the latest updates</li><li>Get our morning and afternoon news emails, free app or daily news podcast</li></ul>The l…",
@@ -251,10 +195,7 @@ function News() {
             content: "The latest set of changes to Twitter will likely spell the end of some of your favourite accounts, tools and features, as the platforms owner, Elon Musk, continues to look for ways to increase revenu… [+4199 chars]"
         },
         {
-            source: {
-                id: 20,
-                name: "Business Insider"
-            },
+            id: 20,
             author: "ayork@insider.com (Alexandra York)",
             title: "A freelancer earned more than $1 million writing Amazon product descriptions via Fiverr. Here's how he built his business.",
             description: "Levi Newman built a business writing descriptions for Amazon sellers. Here's how he built his startup and his advice for other entrepreneurs.",
@@ -264,10 +205,7 @@ function News() {
             content: "Nearly nine years ago, Levi Newman wanted to turn his writing skills into a business. He joined Fiverr, a freelance service marketplace, and used his experience in marketing and social media to write… [+4074 chars]"
         },
         {
-            source: {
-                id: 21,
-                name: "Business Insider"
-            },
+            id: 21,
             author: "amok@insider.com (Aaron Mok)",
             title: "How people are making money on Canva and turning their graphic-design side hustles into full-time gigs",
             description: "Workers are leaving their full-time jobs to start Canva product businesses. Some are taking massive pay cuts to reclaim ownership over their time.",
@@ -277,10 +215,7 @@ function News() {
             content: "After a tech startup fired 31-year-old Shruti Pangtey from her product marketing manager gig, she took the opportunity to start her own digital-products business and she said she has no regrets.\r\nHer… [+5096 chars]"
         },
         {
-            source: {
-                id: 22,
-                name: "MakeUseOf"
-            },
+            id: 22,
             author: "Mihir Patkar",
             title: "5 New Web Search Apps to Make Google Better or Replace Google",
             description: "Whether augmenting Google searches to give better information or completely replacing it with a new app, try these awesome new search engines.",
@@ -290,10 +225,7 @@ function News() {
             content: "Google is the biggest web search engine in the world. But the web keeps changing, and you need tools to find the right content quickly, when Google can't. These new search apps offer different ways t… [+6299 chars]"
         },
         {
-            source: {
-                id: 23,
-                name: "MakeUseOf"
-            },
+            id: 23,
             author: "Ahmed Sohaib",
             title: "How to Use TimeCamp to Reclaim Your Lost Time",
             description: "TimeCamp is a powerful time-management tool to help you track everything you do. Here's how to use it.",
@@ -303,10 +235,7 @@ function News() {
             content: "Time-tracking apps make you more productive and focused by recording how you spend your working hours. Additionally, these productivity tools offer valuable insights to help you better perform your t… [+7650 chars]"
         },
         {
-            source: {
-                id: 24,
-                name: "Moz.com"
-            },
+            id: 24,
             author: "Ann Smarty",
             title: "How to Align Your Blog with Your Organic Search Conversion Funnel",
             description: "Business blogging is a good way to achieve “accidental rankings” (those you didn’t necessarily plan for) and discover more search-driven sales channels. And yet, many business owners or marketing managers have no idea what their blogs are ranking for. Consequ…",
@@ -316,10 +245,7 @@ function News() {
             content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.Business blogging is an interesting concept. Many businesses have… [+8469 chars]"
         },
         {
-            source: {
-                id: 25,
-                name: "Moz.com"
-            },
+            id: 25,
             author: "Will Critchlow",
             title: "Lessons Learned from SEO Tests that Didn't \"Win\" – Whiteboard Friday",
             description: "We love to talk about winning SEO tests, like those wonderful instances where you run an A/B test and you see positive impact. In today’s episode, though, Will is going to discuss the losing tests: those with negative results — or no results — where you could…",
@@ -329,10 +255,7 @@ function News() {
             content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.We love to talk about winning SEO tests, like those wonderful ins… [+5817 chars]"
         },
         {
-            source: {
-                id: 26,
-                name: "Srad.jp"
-            },
+            id: 26,
             author: "nagazou",
             title: "Google、LaMDAを利用する実験的対話型サービス Bard を発表",
             description: "headless 曰く、Google は 6 日、実験的な対話型 AI サービス「Bard」を発表した\n(The Keyword の記事)。\n\nBard は同社の対話型アプリケーション向けの言語モデル Language Model for Dialogue Applications (LaMDA) を利用したもので、既に信頼されたテスター向けに提供が始まっている。今後数週間のうちに一般ユーザーも利用可能になるという。\n\nBard は大規模な言語モデルを用い、ウェブ上の幅広い知識からユーザーの指示に応じて概要をまと…",
@@ -342,10 +265,7 @@ function News() {
             content: "Google 6 AI Bard\r\n(The Keyword )\r\nBard Language Model for Dialogue Applications (LaMDA) \r\nBard LaMDA \r\nGoogle Bard"
         },
         {
-            source: {
-                id: 27,
-                name: "Quicksprout.com"
-            },
+            id: 27,
             author: "Lars Lofgren",
             title: "TextMarks Review",
             description: "Although email marketing is thriving, SMS marketing has swiftly become just about as popular. TextMarks provides a simple way to send out mass text messages to generate leads, share information, or offer promotions to customers. TextMarks assists various indu…",
@@ -355,10 +275,7 @@ function News() {
             content: "Although email marketing is thriving, SMS marketing has swiftly become just about as popular. TextMarks provides a simple way to send out mass text messages to generate leads, share information, or o… [+11372 chars]"
         },
         {
-            source: {
-                id: 28,
-                name: "MakeUseOf"
-            },
+            id: 28,
             author: "Syed Hammad Mahmood",
             title: "9 Online Tools to Search for Trending Hashtags",
             description: "If you're looking for trending hashtags to boost your online content or social posts, here are nine online tools you can use to find them.",
@@ -368,10 +285,7 @@ function News() {
             content: "Hashtags are a great way to reach a wider audience on any social media app. However, finding trending, relevant hashtags can be time-taking and challenging.\r\nLuckily, you don't need to spend countles… [+6449 chars]"
         },
         {
-            source: {
-                id: 29,
-                name: "Scattered-thoughts.net"
-            },
+            id: 29,
             author: 30,
             title: "The program is the database is the interface",
             description: "Comments",
@@ -381,10 +295,7 @@ function News() {
             content: "I do my accounts each year with a simple script. Something like this:\r\n(ns accounts\r\n (:require \r\n [clojure.string :as str]\r\n [clojure.pprint :as pp]))\r\n;; converted from statement.csv\r\n(def txs\r\n [{… [+13663 chars]"
         },
         {
-            source: {
-                id: 31,
-                name: "Search Engine Journal"
-            },
+            id: 31,
             author: "Bea Canuel",
             title: "8 Content Writing Tips From Experts In 2023 via @sejournal, @beacarlota17",
             description: "It can be challenging to write compelling content. From favorite tools to recommended books and SEO recommendations, here are 17 industry experts' advice.\nThe post 8 Content Writing Tips From Experts In 2023 appeared first on Search Engine Journal.",
@@ -394,10 +305,7 @@ function News() {
             content: "The digital market is volatile and ever-changing.\r\nEveryone is competing for popular keywords, and artificial intelligence is changing content creation.\r\nIt can be a bit daunting, especially if you’r… [+23033 chars]"
         },
         {
-            source: {
-                id: 32,
-                name: "Stephenramsay.net"
-            },
+            id: 32,
             author: "Stephen Ramsay",
             title: "The Unreasonable Effectiveness of AWK",
             description: "Comments",
@@ -407,10 +315,7 @@ function News() {
             content: "Stephen Ramsay\r\nIf you cant do it with sed, C, awk, and the shell, you\r\n probably cant do it.\r\nI remember reading that well, I dont know where I read it\r\n (or even if I did). It sounds like something… [+6684 chars]"
         },
         {
-            source: {
-                id: 33,
-                name: "Search Engine Journal"
-            },
+            id: 33,
             author: "Loren Baker",
             title: "Link & Blogging Strategies For 2023 - Ep. 301 via @sejournal, @lorenbaker",
             description: "Learn the latest techniques in blogging and link building in our latest SEJ Show episode.\nThe post Link & Blogging Strategies For 2023 [Podcast] appeared first on Search Engine Journal.",
@@ -420,10 +325,7 @@ function News() {
             content: "SEO professionals looking for ways to gain a competitive edge in their link acquisition and blogging techniques can take heart — 2023 is bringing some exciting advancements that you’ll want to add to… [+3646 chars]"
         },
         {
-            source: {
-                id: 34,
-                name: "Github.io"
-            },
+            id: 34,
             author: null,
             title: "Stuff the identity function does in Rust (2015)",
             description: "Comments",
@@ -433,10 +335,7 @@ function News() {
             content: "The identity function looks like this in Rust:\r\n/// The identity function.fnid&lt;T&gt;(x:T)-&gt;T{x}\r\nid returns the same value that is passed in:\r\nassert_eq!(1,id(1));\r\nBeyond the obvious, it does … [+3110 chars]"
         },
         {
-            source: {
-                id: 35,
-                name: "Moz.com"
-            },
+            id: 35,
             author: "Louise Persson",
             title: "Alternative Search Engines: Why They Matter and How to Rank on Them",
             description: "While Google still holds more than 80% of the market share, ignoring search engines such as Bing, Yahoo, and DuckDuckGo can make you lose out on relevant traffic. So don’t limit yourself to Google’s algorithm as you plan the next year’s SEO strategy.",
@@ -446,10 +345,7 @@ function News() {
             content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.12 billion, 3 billion, 1 billion. Thats the number of searches ma… [+12481 chars]"
         },
         {
-            source: {
-                id: 36,
-                name: "Windows Central"
-            },
+            id: 36,
             author: "ben.wilson@windowscentral.com (Ben Wilson)",
             title: "Microsoft supercharges Bing and Edge with customized ChatGPT — so what about Windows 12?",
             description: "Microsoft finally confirmed OpenAI integration in the all-new Bing search engine and Edge browser. Could an AI-powered operating system be next?",
@@ -459,10 +355,7 @@ function News() {
             content: "Microsoft has officially announced plans to responsibly integrate artificial intelligence tech adopted from its $10 billion partnership with OpenAI into Bing and Edge during our live coverage of the … [+4228 chars]"
         },
         {
-            source: {
-                id: 37,
-                name: "Windows Central"
-            },
+            id: 37,
             author: "zac.bowden@futurenet.com (Zac Bowden)",
             title: "Microsoft PowerToys for Windows gets new Taskbar quick access feature",
             description: "Microsoft has released a new version of PowerToys for Windows 11 and Windows 10 that brings with it a new quick access feature, which lets users quickly jump in to common PowerToys functions directly from the Taskbar via a new flyout in the System Tray.",
@@ -472,10 +365,7 @@ function News() {
             content: "What you need to know\r\n<ul><li>PowerToys Preview version 0.67.0 is now available.</li><li>It includes a new Taskbar quick access flyout for PowerToys shortcuts.</li><li>There are also bug fixes and q… [+2594 chars]"
         },
         {
-            source: {
-                id: 38,
-                name: "Thedailywtf.com"
-            },
+            id: 38,
             author: "Remy Porter",
             title: "CodeSOD: Height of the Accordion",
             description: "In the bad old days of web development, you had to deal with the fact that there weren't really any standards, and you had to customize your code for different browsers. The \"right\" way was to sniff for which features were available, but the most commonly use…",
@@ -485,10 +375,7 @@ function News() {
             content: "In the bad old days of web development, you had to deal with the fact that there weren't really any standards, and you had to customize your code for different browsers. The \"right\" way was to sniff … [+1539 chars]"
         },
         {
-            source: {
-                id: 39,
-                name: "Osxdaily.com"
-            },
+            id: 39,
             author: "Paul Horowitz",
             title: "How to Search Tabs in Google Chrome",
             description: "If you use the Google Chrome web browser, and you use lots of tabs, you might find yourself lost in a sea of tons of tabs and windows. Fortunately, the newer versions of Chrome offer an excellent tab search feature, allowing you to search for URLs and keyword…",
@@ -498,10 +385,7 @@ function News() {
             content: "If you use the Google Chrome web browser, and you use lots of tabs, you might find yourself lost in a sea of tons of tabs and windows.\r\nFortunately, the newer versions of Chrome offer an excellent ta… [+1188 chars]"
         },
         {
-            source: {
-                id: 40,
-                name: "Search Engine Land"
-            },
+            id: 40,
             author: "Tom Demers",
             title: "What is ChatGPT and why SEOs should care",
             description: "Learn how this AI-powered chatbot works, who's behind the technology, and what it can – and can't – do for search marketers.\nThe post What is ChatGPT and why SEOs should care appeared first on Search Engine Land.",
@@ -511,10 +395,7 @@ function News() {
             content: "Interest in AI technology and, more specifically, OpenAIs ChatGPT product has skyrocketed in recent weeks. \r\nPeople are looking for information about both topics.\r\nThousands are writing about ChatGPT… [+11194 chars]"
         },
         {
-            source: {
-                id: 41,
-                name: "Small Business Trends"
-            },
+            id: 41,
             author: "Annie Pilon",
             title: "Struggling to Stay on Budget? Experts Share Small Biz Cost Cutting Secrets",
             description: "Small businesses often have small budgets to work with. This means you have to get more done with fewer resources. Below are expert tips on small business cost cutting.",
@@ -524,10 +405,7 @@ function News() {
             content: "Small businesses often have small budgets to work with. This means you have to get more done with fewer resources. And youre often left with less time each day as a result. Luckily, members of the on… [+3367 chars]"
         },
         {
-            source: {
-                id: 42,
-                name: "Ahelwer.ca"
-            },
+            id: 42,
             author: "Andrew Helwer",
             title: "Can sanitizers find the two bugs I wrote in C++?",
             description: "A few days ago I published a short post about two bugs I wrote while developing the C++ external scanner for my TLA⁺ tree-sitter grammar. Reactions were mixed! Many people were supportive, but there were of course the usual drive-by claims by developers that …",
@@ -537,10 +415,7 @@ function News() {
             content: "A few days ago I published a short post about two bugs I wrote while developing the C++ external scanner for my TLA tree-sitter grammar.\r\nReactions were mixed!\r\nMany people were supportive, but there… [+13388 chars]"
         },
         {
-            source: {
-                id: 43,
-                name: "Search Engine Journal"
-            },
+            id: 43,
             author: "Roger Montti",
             title: "Google: Headings With Hierarchical Structure An “Awesome Idea” via @sejournal, @martinibuster",
             description: "Google's John Mueller says headings with a hierarchical structure is an \"awesome idea & a great practice\"\nThe post Google: Headings With Hierarchical Structure An “Awesome Idea” appeared first on Search Engine Journal.",
@@ -550,10 +425,7 @@ function News() {
             content: "Google’s John Mueller discussed heading elements with a member of the SEO community where he affirmed the usefulness of using hierarchical structure when using heading elements.\r\nBackground Context t… [+5093 chars]"
         },
         {
-            source: {
-                id: 44,
-                name: "digg.com"
-            },
+            id: 44,
             author: "Digg Editors",
             title: "Burning Questions Americans Have About Others' States And Countries Around The World, Mapped",
             description: "Auto-complete is one helluva drug.",
@@ -563,10 +435,7 @@ function News() {
             content: "Guauging curiosity is always a difficult task when it comes to groups. Using targetted keyword searches, the folks at SavingSpot used an open-ended question (\"why does...\") to see what kind of result… [+854 chars]"
         },
         {
-            source: {
-                id: 45,
-                name: "Verdagon.dev"
-            },
+            id: 45,
             author: null,
             title: "Memory Safety Approaches Speed Up and Slow Down Development Velocity",
             description: "Comments",
@@ -576,10 +445,7 @@ function News() {
             content: "Borrow Checking and Beyond\r\nA lot of languages are working on borrow checking blends that are better for development velocity.\r\nSome languages are using it under the hood:\r\n<ul><li>Lobster is using b… [+9201 chars]"
         },
         {
-            source: {
-                id: 46,
-                name: "Hardiksachan.com"
-            },
+            id: 46,
             author: "Hardik Sachan",
             title: "Kotlin Data Classes 101: Understanding Syntax, Usage and Inheritance",
             description: "Welcome back to this series of articles on Android Development with Kotlin and Jetpack Compose. In the previous article, we discussed the type system in Kotlin along with null safety. In this article, we will take a look at what data classes are, how...",
@@ -589,10 +455,7 @@ function News() {
             content: "Welcome back to this series of articles on Android Development with Kotlin and Jetpack Compose. In the previous article, we discussed the type system in Kotlin along with null safety. In this article… [+8028 chars]"
         },
         {
-            source: {
-                id: 47,
-                name: "Search Engine Journal"
-            },
+            id: 47,
             author: "Adam Heitzman",
             title: "How To Optimize Website Architecture For SEO via @sejournal, @AdamHeitzman",
             description: "Find out why site architecture is essential for SEO, see examples of organizing your site, and learn tips to make your site structure as SEO-friendly.\nThe post How To Optimize Website Architecture For SEO appeared first on Search Engine Journal.",
@@ -602,10 +465,7 @@ function News() {
             content: "When people talk about high-priority SEO activities, they usually point to crucial areas like keyword research, content planning, and link-building.\r\nWebsite architecture is rarely top of the list.\r\n… [+12752 chars]"
         },
         {
-            source: {
-                id: 48,
-                name: "Windows Central"
-            },
+            id: 48,
             author: "zac.bowden@futurenet.com (Zac Bowden)",
             title: "Major leak reveals revolutionary new version of Microsoft Bing powered by ChatGPT-4 AI",
             description: "It looks like Microsoft is gearing up to launch a major new version of Bing that integrates OpenAI’s ChatGPT-4 technology in a way that will revolutionize searching the web. Multiple have reported seemingly stumbling across a preview version of the new Bing e…",
@@ -615,10 +475,7 @@ function News() {
             content: "What you need to know\r\n<ul><li>Microsoft is preparing to launch a revolutionary new version of Bing.</li><li>The new Bing went live briefly earlier today and revealed ChatGPT-4 integration.</li><li>N… [+2594 chars]"
         },
         {
-            source: {
-                id: 49,
-                name: "Matplotlib.org"
-            },
+            id: 49,
             author: null,
             title: "What's new in Matplotlib 3.7.0 (Feb 13, 2023)",
             description: "Comments",
@@ -628,10 +485,7 @@ function News() {
             content: "pie now accepts a hatch keyword that takes as input\r\na hatch or list of hatches:\r\nfig,(ax1,ax2)=plt.subplots(ncols=2)x=[10,30,60]ax1.pie(x,hatch=['.','o','O'])ax2.pie(x,hatch='.O')ax1.set_title(\"hatc… [+5588 chars]"
         },
         {
-            source: {
-                id: 50,
-                name: "Feedly.com"
-            },
+            id: 50,
             author: "Gaby Zedan",
             title: "Keep up with the expansion strategies of your competitors",
             description: "Track new location announcements across the Web with Feedly’s AI Engine",
@@ -642,8 +496,6 @@ function News() {
         }
     ]
 
-    let [news, setNews] = useState(newsArray)
-
     let [value, setValue] = useState('')
 
     const truncateDescription = (text) =>
@@ -653,7 +505,7 @@ function News() {
 
     }, [])
 
-    let searchInpute = news.filter(item =>{
+    let searchInpute = newsArray.filter(item => {
         return item.title.toLowerCase().includes(value.toLowerCase())
     })
     return (
@@ -663,25 +515,19 @@ function News() {
                     <input
                         className='serch-input'
                         placeholder='Search...'
-                        onChange={(event)=>{setValue(event.target.value)}}
+                        onChange={(event) => { setValue(event.target.value) }}
                     />
                 </form>
             </div>
             <div className='news-wrapper'>
                 {searchInpute.map((item) => {
                     return (
-                        <section className="card-item-wrapper" onClick={() => { console.log(item) }} key={item.source.id}>
-                            <a className="card-link" target="_blank" rel="noopener noreferrer">
-                                <img src={item.urlToImage || "https://picsum.photos/200/300"} />
-                                <article className="card-item-content">
-                                    <h3>{item.title}</h3>
-                                    {item.author ? <h4>By {item.author}</h4> : null}
-                                    <p>{truncateDescription(item.description)}</p>
-                                </article>
-                            </a>
-                        </section>
+                        <Card item={item} key={item.id} truncateDescription={truncateDescription} />
                     )
                 })}
+            </div>
+            <div>
+                pagination
             </div>
         </div>
     );
