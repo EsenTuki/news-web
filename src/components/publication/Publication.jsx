@@ -1,28 +1,30 @@
-let Publication = (props) => {
-    let item = {
-        source: {
-            id: 1,
-            name: "Medium"
-        },
-        author: "insider@insider.com (Emily McDermott)",
-        title: "I've made $210,000 in less than 2 years selling spreadsheet templates on Etsy. Here are 5 easy-to-follow tips for making sales.",
-        description: "Emily McDermott sells spreadsheet templates on her Etsy shop. She shares her best tips for getting your shop noticed on the platform",
-        url: "https://emily-mcdermott.medium.com/how-ive-made-280k-selling-spreadsheets-on-etsy-51b0759a9465",
-        urlToImage: "https://i.insider.com/63ea0ad196242f0019e88aed?width=1200&format=jpeg",
-        publishedAt: "2023-02-13T10:48:56Z",
-        content: "In under two years, I've made CA$280,600 or around $210,000 on Etsy selling spreadsheet templates for Google Sheets and Excel.\r\nI'm not a spreadsheet expert by any means, but I do know how to find di… [+4490 chars]"
+import { useParams } from "react-router-dom";
+import { useEffect, useContext } from "react";
+import { ADD_COMMENT, ContextApp } from "../../reducers/newsReducer";
+
+let Publication = () => {
+    const { id } = useParams()
+    const { dispatch, state } = useContext(ContextApp)
+
+    let data = state.news.filter(item => item.id == id)
+
+    let addComment = () =>{
+        dispatch({type:ADD_COMMENT})
     }
+    console.log('data',data)
     return (
         <div className="container">
-            <h1 style={{borderBottom:"1px solid #ddd"}}><b>{item.title}</b></h1>
-            <img style={{width:"40%"}} src={item.urlToImage}/>
-            <p style={{fontSize:"20px"}}>{item.content}</p>
+            <h1 style={{ borderBottom: "1px solid #ddd" }}><b>{data[0].title}</b></h1>
+            <img style={{ width: "40%" }} src={data[0].urlToImage} />
+            <p style={{ fontSize: "20px" }}>{data[0].content}</p>
             <div>
                 <div>
-                    <textarea/>
+                    <textarea /> <button onClick={addComment}>Add</button>
                 </div>
                 <div>
-                    Comments
+                    {data[0].comments.map((item) => <div key={item.id}>
+                        {item.text}
+                    </div>)}
                 </div>
 
             </div>

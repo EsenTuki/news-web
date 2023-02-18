@@ -1,7 +1,6 @@
 import React from "react";
 
-export let GET_NEWS = 'GET-NEWS'
-export let GET_PUBLICATION = 'GET-PUBLICATION'
+export let ADD_COMMENT = 'ADD-COMMENT'
 
 export const initialState = {
     news: [
@@ -13,7 +12,9 @@ export const initialState = {
             url: "https://emily-mcdermott.medium.com/how-ive-made-280k-selling-spreadsheets-on-etsy-51b0759a9465",
             urlToImage: "https://i.insider.com/63ea0ad196242f0019e88aed?width=1200&format=jpeg",
             publishedAt: "2023-02-13T10:48:56Z",
-            content: "In under two years, I've made CA$280,600 or around $210,000 on Etsy selling spreadsheet templates for Google Sheets and Excel.\r\nI'm not a spreadsheet expert by any means, but I do know how to find di… [+4490 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "In under two years, I've made CA$280,600 or around $210,000 on Etsy selling spreadsheet templates for Google Sheets and Excel.\r\nI'm not a spreadsheet expert by any means, but I do know how to find di… [+4490 chars]",
         },
         {
             id: 2,
@@ -23,7 +24,9 @@ export const initialState = {
             url: "https://moz.com/blog/daily-seo-fix-investigating-keyword-cannibalization",
             urlToImage: "https://moz.com/images/cms/6042b901d424f8.96940036_2021-04-15-230656.png?w=1200&h=630&q=82&auto=format&fit=crop&dm=1618528016&s=b298c4d810e8e8ad23b1fc18e845f64e",
             publishedAt: "2023-01-23T08:00:00Z",
-            content: "Keyword cannibalization occurs when a website has too many similar keywords spread throughout the various pages on that site. This can harm the SEO potential of the pages involved, and can quite ofte… [+1550 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Keyword cannibalization occurs when a website has too many similar keywords spread throughout the various pages on that site. This can harm the SEO potential of the pages involved, and can quite ofte… [+1550 chars]"
         },
         {
             id: 3,
@@ -33,7 +36,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/seo-tools/seo-agency-tools-keyword-research/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/01/keyword-research-tools-63c7decb1c791-sej.jpg",
             publishedAt: "2023-01-23T10:00:41Z",
-            content: "All successful SEO campaigns rely on accurate, comprehensive data. And that process starts with the right keyword research tools.\r\nSure, you can get away with collecting keyword data manually on your… [+16882 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "All successful SEO campaigns rely on accurate, comprehensive data. And that process starts with the right keyword research tools.\r\nSure, you can get away with collecting keyword data manually on your… [+16882 chars]"
         },
         {
             id: 4,
@@ -43,7 +48,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/keyword-research-topic-clustering-recap/477910/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/01/featured-1-63d84f0463271-sej.jpg",
             publishedAt: "2023-02-01T08:45:28Z",
-            content: "It’s common for marketers to target individual keywords when creating and optimizing content. Still, topic clusters are an even more powerful way to do keyword research.\r\nWith topic clustering, you c… [+3652 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "It’s common for marketers to target individual keywords when creating and optimizing content. Still, topic clusters are an even more powerful way to do keyword research.\r\nWith topic clustering, you c… [+3652 chars]"
         },
         {
             id: 5,
@@ -53,7 +60,9 @@ export const initialState = {
             url: "https://www.pixelated-noise.com/blog/2023/02/09/flatten-routes/index.html",
             urlToImage: "https://www.pixelated-noise.com/blog/2023/02/09/flatten-routes/meme.jpeg",
             publishedAt: "2023-02-12T09:17:51Z",
-            content: "So one approach would be to use run-of-the-mill recursive Clojure to achieve\r\nthis:\r\n(defnflatten-routes-recursive [[path-part &amp; [sec :as rst] :as all]]\r\n (cond (keyword? sec) ; form 1\r\n {path-pa… [+3367 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "So one approach would be to use run-of-the-mill recursive Clojure to achieve\r\nthis:\r\n(defnflatten-routes-recursive [[path-part &amp; [sec :as rst] :as all]]\r\n (cond (keyword? sec) ; form 1\r\n {path-pa… [+3367 chars]"
         },
         {
             id: 6,
@@ -63,7 +72,9 @@ export const initialState = {
             url: "https://hackaday.com/2023/01/29/illuminate-your-benched-things-with-this-death-stranding-lamp/",
             urlToImage: "https://hackaday.com/wp-content/uploads/2023/01/death_stranding_lamp_primary1.png",
             publishedAt: "2023-01-29T09:00:00Z",
-            content: "[Pinkman] creates a smart RGB table lamp based off of the “Odradek device” robot arm from the video game “Death Stranding”.\r\n[Pinkman] adds a XIAO BLE nRF52840 Sense device, with Bluetooth support, m… [+1214 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "[Pinkman] creates a smart RGB table lamp based off of the “Odradek device” robot arm from the video game “Death Stranding”.\r\n[Pinkman] adds a XIAO BLE nRF52840 Sense device, with Bluetooth support, m… [+1214 chars]"
         },
         {
             id: 7,
@@ -73,7 +84,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/fix-seo-keyword-cannibalizations-dinorank-spa/477313/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/01/featured-63d7fc330bad9-sej.jpg",
             publishedAt: "2023-02-08T06:00:52Z",
-            content: "This post was sponsored by DinoRANK. The opinions expressed in this article are the sponsor’s own.\r\nGoogle is a great source of qualified and recurring traffic for your business – that’s a fact.\r\nMan… [+7990 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "This post was sponsored by DinoRANK. The opinions expressed in this article are the sponsor’s own.\r\nGoogle is a great source of qualified and recurring traffic for your business – that’s a fact.\r\nMan… [+7990 chars]"
         },
         {
             id: 8,
@@ -83,7 +96,9 @@ export const initialState = {
             url: "https://smallbiztrends.com/2023/01/how-to-make-money-on-tiktok.html",
             urlToImage: "https://media.smallbiztrends.com/2023/01/HV-300-How-to-Make-Money-on-TikTok-in-2023-The-15-Best-Ways.png",
             publishedAt: "2023-01-24T17:00:09Z",
-            content: "TikTok is the short video-sharing platform that has taken the internet by storm in recent years and has quickly grown in popularity. The social media platform for short-form videos that span from fif… [+16456 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "TikTok is the short video-sharing platform that has taken the internet by storm in recent years and has quickly grown in popularity. The social media platform for short-form videos that span from fif… [+16456 chars]"
         },
         {
             id: 9,
@@ -93,7 +108,9 @@ export const initialState = {
             url: "https://smallbiztrends.com/2023/01/how-to-file-taxes.html",
             urlToImage: "https://media.smallbiztrends.com/2023/01/how-to-file-taxes-for-the-2022-tax-year.png",
             publishedAt: "2023-01-25T14:00:39Z",
-            content: "Its said that the longest journey starts with a single step.\r\nHow to file taxes? Whether youre going to file your own taxes, 0r use tax preparation services, your first step before you prepare and fi… [+7976 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Its said that the longest journey starts with a single step.\r\nHow to file taxes? Whether youre going to file your own taxes, 0r use tax preparation services, your first step before you prepare and fi… [+7976 chars]"
         },
         {
             id: 10,
@@ -103,7 +120,9 @@ export const initialState = {
             url: "https://readwrite.com/skyrocket-your-google-rankings-with-these-10-awesome-seo-copywriting-tips/",
             urlToImage: "https://images.readwrite.com/wp-content/uploads/2023/01/Google-Rankings.jpg",
             publishedAt: "2023-01-24T16:00:33Z",
-            content: "If you want your website to rank higher in Google, you need to start paying attention to your SEO copywriting.\r\nIn this blog post, we will discuss ten tips that will help you build content that ranks… [+5737 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "If you want your website to rank higher in Google, you need to start paying attention to your SEO copywriting.\r\nIn this blog post, we will discuss ten tips that will help you build content that ranks… [+5737 chars]"
         },
         {
             id: 11,
@@ -113,7 +132,9 @@ export const initialState = {
             url: "https://www.reuters.com/lifestyle/sports/beyond-yips-dallas-kicker-maher-faces-mental-battle-playoffs-2023-01-21/",
             urlToImage: "https://www.reuters.com/resizer/Sgnj5n53OLyMQ-6mcywckJHMKn4=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/I4AAPDG3ZNP5TOMAQ6QETODLSE.jpg",
             publishedAt: "2023-01-21T01:05:00Z",
-            content: "Jan 20 (Reuters) - Dallas Cowboys kicker Brett Maher must tame his inner nerves in Sunday's divisional round of the playoffs against the San Francisco 49ers, after a record four missed extra point at… [+2635 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Jan 20 (Reuters) - Dallas Cowboys kicker Brett Maher must tame his inner nerves in Sunday's divisional round of the playoffs against the San Francisco 49ers, after a record four missed extra point at… [+2635 chars]"
         },
         {
             id: 12,
@@ -123,7 +144,9 @@ export const initialState = {
             url: "https://www.androidcentral.com/apps-software/google-expands-safesearch-password-protection",
             urlToImage: "https://cdn.mos.cms.futurecdn.net/WMab7m8CVng8rUHffk5bgR-1200-80.jpg",
             publishedAt: "2023-02-07T18:14:23Z",
-            content: "<ul><li>Google details new and upcoming ways it will bring increased data and safety measures to its service.</li><li>Google Password Manager, on supported computers, will gain a biometric authentica… [+2629 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "<ul><li>Google details new and upcoming ways it will bring increased data and safety measures to its service.</li><li>Google Password Manager, on supported computers, will gain a biometric authentica… [+2629 chars]"
         },
         {
             id: 13,
@@ -133,7 +156,9 @@ export const initialState = {
             url: "https://www.businessinsider.com/made-877000-revenue-selling-emotional-intelligence-card-games-amazon-2023-1",
             urlToImage: "https://i.insider.com/63cee0ecf7448600187a8265?width=1200&format=jpeg",
             publishedAt: "2023-01-27T10:00:00Z",
-            content: "This as-told-to essay is based on a conversation with Jenny Woo, the 40-year-old founder of Mind Brain Emotion, from Irvine, California. Insider has verified her business' revenue with documentation.… [+6739 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "This as-told-to essay is based on a conversation with Jenny Woo, the 40-year-old founder of Mind Brain Emotion, from Irvine, California. Insider has verified her business' revenue with documentation.… [+6739 chars]"
         },
         {
             id: 14,
@@ -143,7 +168,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/improve-seo-topic-clusters-iquanti-spa/477082/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/01/featured-image-63d16a0b2fc7d-sej.jpg",
             publishedAt: "2023-02-15T06:00:19Z",
-            content: "This post was sponsored by iQuanti. The opinions expressed in this article are the sponsor’s own.\r\nWhat transforms a website from just a catalog of blog posts to a highly-organized hub of authoritati… [+9267 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "This post was sponsored by iQuanti. The opinions expressed in this article are the sponsor’s own.\r\nWhat transforms a website from just a catalog of blog posts to a highly-organized hub of authoritati… [+9267 chars]"
         },
         {
             id: 15,
@@ -153,7 +180,9 @@ export const initialState = {
             url: "https://www.entrepreneur.com/growing-a-business/10-marketing-strategies-for-online-businesses/442446",
             urlToImage: "https://assets.entrepreneur.com/content/3x2/2000/1673903410-GettyImages-510395200.jpg",
             publishedAt: "2023-01-19T20:30:00Z",
-            content: "Starting an online business is great for bringing your products or services to a broader audience. However, the competition is fierce, and it can be difficult to stand out in the crowded online marke… [+3995 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Starting an online business is great for bringing your products or services to a broader audience. However, the competition is fierce, and it can be difficult to stand out in the crowded online marke… [+3995 chars]"
         },
         {
             id: 16,
@@ -163,7 +192,9 @@ export const initialState = {
             url: "https://www.techdirt.com/2023/02/03/colorado-supreme-court-to-hear-challenge-of-reverse-keyword-warrant-served-to-google/",
             urlToImage: "https://www.techdirt.com/wp-content/themes/techdirt/assets/images/td-rect-logo-white.png",
             publishedAt: "2023-02-03T20:07:34Z",
-            content: "from the searching-everyone-to-find-probable-cause dept\r\nGeofence warrants get all the hype. But Google also stores other data of interest to law enforcement: Google searches.\r\nWith these warrants, l… [+7746 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "from the searching-everyone-to-find-probable-cause dept\r\nGeofence warrants get all the hype. But Google also stores other data of interest to law enforcement: Google searches.\r\nWith these warrants, l… [+7746 chars]"
         },
         {
             id: 17,
@@ -173,7 +204,9 @@ export const initialState = {
             url: "https://www.makeuseof.com/javascript-how-use-generators-iterators/",
             urlToImage: "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/06/javascript-featured.jpg",
             publishedAt: "2023-02-13T11:00:15Z",
-            content: "Iterating over data collections using traditional loops can quickly become cumbersome and slow, especially when dealing with massive amounts of data.\r\nJavaScript Generators and Iterators provide a so… [+9017 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Iterating over data collections using traditional loops can quickly become cumbersome and slow, especially when dealing with massive amounts of data.\r\nJavaScript Generators and Iterators provide a so… [+9017 chars]"
         },
         {
             id: 18,
@@ -183,7 +216,9 @@ export const initialState = {
             url: "https://www.makeuseof.com/typescript-how-to-use-namespaces/",
             urlToImage: "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/04/How-to-Set-Up-TypeScript-in-Node.jpg",
             publishedAt: "2023-02-05T16:01:16Z",
-            content: "A naming collision occurs when two or more code components use the same name for a variable, function, or class. They are common in large projects where many people work on the same codebase. They ca… [+6414 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "A naming collision occurs when two or more code components use the same name for a variable, function, or class. They are common in large projects where many people work on the same codebase. They ca… [+6414 chars]"
         },
         {
             id: 19,
@@ -193,7 +228,9 @@ export const initialState = {
             url: "https://www.theguardian.com/technology/2023/feb/03/some-popular-accounts-likely-to-disappear-from-twitter-as-elon-musk-ends-free-access-to-api",
             urlToImage: "https://i.guim.co.uk/img/media/271a91dae98dc72c45c4323d000ea7a726ba33eb/0_145_4000_2399/master/4000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2a36fd518b1b452a2c6b47fff976580f",
             publishedAt: "2023-02-03T06:39:11Z",
-            content: "The latest set of changes to Twitter will likely spell the end of some of your favourite accounts, tools and features, as the platforms owner, Elon Musk, continues to look for ways to increase revenu… [+4199 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "The latest set of changes to Twitter will likely spell the end of some of your favourite accounts, tools and features, as the platforms owner, Elon Musk, continues to look for ways to increase revenu… [+4199 chars]"
         },
         {
             id: 20,
@@ -203,7 +240,9 @@ export const initialState = {
             url: "https://www.businessinsider.com/how-to-make-money-on-fiverr-build-million-freelance-business-2022-8",
             urlToImage: "https://i.insider.com/62e82bd0c1c56b0018b4ad86?width=1200&format=jpeg",
             publishedAt: "2023-02-09T16:46:23Z",
-            content: "Nearly nine years ago, Levi Newman wanted to turn his writing skills into a business. He joined Fiverr, a freelance service marketplace, and used his experience in marketing and social media to write… [+4074 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Nearly nine years ago, Levi Newman wanted to turn his writing skills into a business. He joined Fiverr, a freelance service marketplace, and used his experience in marketing and social media to write… [+4074 chars]"
         },
         {
             id: 21,
@@ -213,7 +252,9 @@ export const initialState = {
             url: "https://www.businessinsider.com/workers-leaving-high-paying-jobs-canva-side-hustle-2022-10",
             urlToImage: "https://i.insider.com/63612637ade71a00193dc7db?width=1200&format=jpeg",
             publishedAt: "2023-01-28T14:08:25Z",
-            content: "After a tech startup fired 31-year-old Shruti Pangtey from her product marketing manager gig, she took the opportunity to start her own digital-products business and she said she has no regrets.\r\nHer… [+5096 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "After a tech startup fired 31-year-old Shruti Pangtey from her product marketing manager gig, she took the opportunity to start her own digital-products business and she said she has no regrets.\r\nHer… [+5096 chars]"
         },
         {
             id: 22,
@@ -223,7 +264,9 @@ export const initialState = {
             url: "https://www.makeuseof.com/web-search-apps-make-google-better-or-replace-google/",
             urlToImage: "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2023/02/google-alternative-search-engines-featured.jpg",
             publishedAt: "2023-02-04T09:31:15Z",
-            content: "Google is the biggest web search engine in the world. But the web keeps changing, and you need tools to find the right content quickly, when Google can't. These new search apps offer different ways t… [+6299 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Google is the biggest web search engine in the world. But the web keeps changing, and you need tools to find the right content quickly, when Google can't. These new search apps offer different ways t… [+6299 chars]"
         },
         {
             id: 23,
@@ -233,7 +276,9 @@ export const initialState = {
             url: "https://www.makeuseof.com/how-to-use-timecamp-reclaim-lost-time/",
             urlToImage: "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2023/01/time-tracking-in-timecamp.jpg",
             publishedAt: "2023-02-08T12:00:15Z",
-            content: "Time-tracking apps make you more productive and focused by recording how you spend your working hours. Additionally, these productivity tools offer valuable insights to help you better perform your t… [+7650 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Time-tracking apps make you more productive and focused by recording how you spend your working hours. Additionally, these productivity tools offer valuable insights to help you better perform your t… [+7650 chars]"
         },
         {
             id: 24,
@@ -243,7 +288,9 @@ export const initialState = {
             url: "https://moz.com/blog/blog-for-organic-search-conversion-funnel",
             urlToImage: "https://moz.com/images/blog/banners/blogging.jpg?w=1200&h=630&q=82&auto=format&fit=clip&dm=1532383478&s=36988a86eb25e31d042b84468bc309c4",
             publishedAt: "2023-01-16T08:00:00Z",
-            content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.Business blogging is an interesting concept. Many businesses have… [+8469 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.Business blogging is an interesting concept. Many businesses have… [+8469 chars]"
         },
         {
             id: 25,
@@ -253,7 +300,9 @@ export const initialState = {
             url: "https://moz.com/blog/lessons-learned-from-failed-seo-tests-whiteboard-friday",
             urlToImage: "https://moz.com/images/cms/WBF_LessonsLearned_Thumbnail.png?w=1200&h=630&q=82&auto=format&fit=crop&dm=1675971337&s=b382db33b05bb3a49131e4517bc286eb",
             publishedAt: "2023-02-10T08:00:00Z",
-            content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.We love to talk about winning SEO tests, like those wonderful ins… [+5817 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.We love to talk about winning SEO tests, like those wonderful ins… [+5817 chars]"
         },
         {
             id: 26,
@@ -263,7 +312,9 @@ export const initialState = {
             url: "https://it.srad.jp/story/23/02/07/2241211/",
             urlToImage: "https://srad.jp/static/topics/google_64.png",
             publishedAt: "2023-02-08T06:08:00Z",
-            content: "Google 6 AI Bard\r\n(The Keyword )\r\nBard Language Model for Dialogue Applications (LaMDA) \r\nBard LaMDA \r\nGoogle Bard"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Google 6 AI Bard\r\n(The Keyword )\r\nBard Language Model for Dialogue Applications (LaMDA) \r\nBard LaMDA \r\nGoogle Bard"
         },
         {
             id: 27,
@@ -273,7 +324,9 @@ export const initialState = {
             url: "https://www.quicksprout.com/textmarks-review/",
             urlToImage: null,
             publishedAt: "2023-01-26T23:00:00Z",
-            content: "Although email marketing is thriving, SMS marketing has swiftly become just about as popular. TextMarks provides a simple way to send out mass text messages to generate leads, share information, or o… [+11372 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Although email marketing is thriving, SMS marketing has swiftly become just about as popular. TextMarks provides a simple way to send out mass text messages to generate leads, share information, or o… [+11372 chars]"
         },
         {
             id: 28,
@@ -283,7 +336,9 @@ export const initialState = {
             url: "https://www.makeuseof.com/search-trending-hashtags-online-tools/",
             urlToImage: "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2023/01/trending-hashtag.jpg",
             publishedAt: "2023-01-19T17:30:16Z",
-            content: "Hashtags are a great way to reach a wider audience on any social media app. However, finding trending, relevant hashtags can be time-taking and challenging.\r\nLuckily, you don't need to spend countles… [+6449 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Hashtags are a great way to reach a wider audience on any social media app. However, finding trending, relevant hashtags can be time-taking and challenging.\r\nLuckily, you don't need to spend countles… [+6449 chars]"
         },
         {
             id: 29,
@@ -293,7 +348,9 @@ export const initialState = {
             url: "https://scattered-thoughts.net/writing/the-program-is-the-database-is-the-interface/",
             urlToImage: null,
             publishedAt: "2023-02-12T10:37:35Z",
-            content: "I do my accounts each year with a simple script. Something like this:\r\n(ns accounts\r\n (:require \r\n [clojure.string :as str]\r\n [clojure.pprint :as pp]))\r\n;; converted from statement.csv\r\n(def txs\r\n [{… [+13663 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "I do my accounts each year with a simple script. Something like this:\r\n(ns accounts\r\n (:require \r\n [clojure.string :as str]\r\n [clojure.pprint :as pp]))\r\n;; converted from statement.csv\r\n(def txs\r\n [{… [+13663 chars]"
         },
         {
             id: 31,
@@ -303,7 +360,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/content-writing-tips-from-experts/477016/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/01/content-writing-tips-63d2777a84407-sej.png",
             publishedAt: "2023-01-27T09:15:09Z",
-            content: "The digital market is volatile and ever-changing.\r\nEveryone is competing for popular keywords, and artificial intelligence is changing content creation.\r\nIt can be a bit daunting, especially if you’r… [+23033 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "The digital market is volatile and ever-changing.\r\nEveryone is competing for popular keywords, and artificial intelligence is changing content creation.\r\nIt can be a bit daunting, especially if you’r… [+23033 chars]"
         },
         {
             id: 32,
@@ -313,7 +372,9 @@ export const initialState = {
             url: "https://stephenramsay.net/posts/unreasonable-awk.html",
             urlToImage: null,
             publishedAt: "2023-01-16T02:48:22Z",
-            content: "Stephen Ramsay\r\nIf you cant do it with sed, C, awk, and the shell, you\r\n probably cant do it.\r\nI remember reading that well, I dont know where I read it\r\n (or even if I did). It sounds like something… [+6684 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Stephen Ramsay\r\nIf you cant do it with sed, C, awk, and the shell, you\r\n probably cant do it.\r\nI remember reading that well, I dont know where I read it\r\n (or even if I did). It sounds like something… [+6684 chars]"
         },
         {
             id: 33,
@@ -323,7 +384,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/link-blogging-strategies-2023-podcast/479005/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/02/sejshow-featured-image-63e557c6274d8-sej.jpg",
             publishedAt: "2023-02-09T21:05:43Z",
-            content: "SEO professionals looking for ways to gain a competitive edge in their link acquisition and blogging techniques can take heart — 2023 is bringing some exciting advancements that you’ll want to add to… [+3646 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "SEO professionals looking for ways to gain a competitive edge in their link acquisition and blogging techniques can take heart — 2023 is bringing some exciting advancements that you’ll want to add to… [+3646 chars]"
         },
         {
             id: 34,
@@ -333,7 +396,9 @@ export const initialState = {
             url: "https://bluss.github.io//rust/fun/2015/10/11/stuff-the-identity-function-does/",
             urlToImage: null,
             publishedAt: "2023-02-12T08:30:24Z",
-            content: "The identity function looks like this in Rust:\r\n/// The identity function.fnid&lt;T&gt;(x:T)-&gt;T{x}\r\nid returns the same value that is passed in:\r\nassert_eq!(1,id(1));\r\nBeyond the obvious, it does … [+3110 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "The identity function looks like this in Rust:\r\n/// The identity function.fnid&lt;T&gt;(x:T)-&gt;T{x}\r\nid returns the same value that is passed in:\r\nassert_eq!(1,id(1));\r\nBeyond the obvious, it does … [+3110 chars]"
         },
         {
             id: 35,
@@ -343,7 +408,9 @@ export const initialState = {
             url: "https://moz.com/blog/alternative-search-engines-why-they-matter-and-how-to-rank-on-them",
             urlToImage: "https://moz.com/images/cms/moz-stairs-homepage-banner-v2.jpg?w=1200&h=630&q=82&auto=format&fit=crop&crop=focalpoint&fp-x=0.6423&fp-y=0.497&dm=1549300321&s=4ade1686bcefc80937fc976e3a22d6f4",
             publishedAt: "2023-02-08T08:00:00Z",
-            content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.12 billion, 3 billion, 1 billion. Thats the number of searches ma… [+12481 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "The author's views are entirely his or her own (excluding the unlikely event of hypnosis) and may not always reflect the views of Moz.12 billion, 3 billion, 1 billion. Thats the number of searches ma… [+12481 chars]"
         },
         {
             id: 36,
@@ -353,7 +420,9 @@ export const initialState = {
             url: "https://www.windowscentral.com/microsoft/microsoft-supercharges-bing-and-edge-with-customized-chatgpt-so-what-about-windows-12",
             urlToImage: "https://cdn.mos.cms.futurecdn.net/TJihrEZ2UEerUChnN7qGwV-1200-80.jpg",
             publishedAt: "2023-02-07T18:56:23Z",
-            content: "Microsoft has officially announced plans to responsibly integrate artificial intelligence tech adopted from its $10 billion partnership with OpenAI into Bing and Edge during our live coverage of the … [+4228 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Microsoft has officially announced plans to responsibly integrate artificial intelligence tech adopted from its $10 billion partnership with OpenAI into Bing and Edge during our live coverage of the … [+4228 chars]"
         },
         {
             id: 37,
@@ -363,7 +432,9 @@ export const initialState = {
             url: "https://www.windowscentral.com/software-apps/windows-11/microsoft-powertoys-for-windows-gets-new-taskbar-quick-access-feature",
             urlToImage: "https://cdn.mos.cms.futurecdn.net/BgFwmxUErCbUn9je7KLjkU-1200-80.jpg",
             publishedAt: "2023-02-02T13:04:51Z",
-            content: "What you need to know\r\n<ul><li>PowerToys Preview version 0.67.0 is now available.</li><li>It includes a new Taskbar quick access flyout for PowerToys shortcuts.</li><li>There are also bug fixes and q… [+2594 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "What you need to know\r\n<ul><li>PowerToys Preview version 0.67.0 is now available.</li><li>It includes a new Taskbar quick access flyout for PowerToys shortcuts.</li><li>There are also bug fixes and q… [+2594 chars]"
         },
         {
             id: 38,
@@ -373,7 +444,9 @@ export const initialState = {
             url: "https://thedailywtf.com/articles/height-of-the-accordion",
             urlToImage: "https://thedailywtf.com/images/remy/Remy203-300x300.png",
             publishedAt: "2023-01-30T06:30:00Z",
-            content: "In the bad old days of web development, you had to deal with the fact that there weren't really any standards, and you had to customize your code for different browsers. The \"right\" way was to sniff … [+1539 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "In the bad old days of web development, you had to deal with the fact that there weren't really any standards, and you had to customize your code for different browsers. The \"right\" way was to sniff … [+1539 chars]"
         },
         {
             id: 39,
@@ -383,7 +456,9 @@ export const initialState = {
             url: "https://osxdaily.com/2023/01/20/how-to-search-tabs-in-google-chrome/",
             urlToImage: "https://cdn.osxdaily.com/wp-content/uploads/2023/01/search-tabs-google-chrome-1.jpg",
             publishedAt: "2023-01-20T15:21:52Z",
-            content: "If you use the Google Chrome web browser, and you use lots of tabs, you might find yourself lost in a sea of tons of tabs and windows.\r\nFortunately, the newer versions of Chrome offer an excellent ta… [+1188 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "If you use the Google Chrome web browser, and you use lots of tabs, you might find yourself lost in a sea of tons of tabs and windows.\r\nFortunately, the newer versions of Chrome offer an excellent ta… [+1188 chars]"
         },
         {
             id: 40,
@@ -393,7 +468,9 @@ export const initialState = {
             url: "https://searchengineland.com/what-is-chatgpt-and-why-seos-should-care-392165",
             urlToImage: "https://searchengineland.com/wp-content/seloads/2023/01/ChatGPT-for-SEO.png",
             publishedAt: "2023-01-26T14:00:00Z",
-            content: "Interest in AI technology and, more specifically, OpenAIs ChatGPT product has skyrocketed in recent weeks. \r\nPeople are looking for information about both topics.\r\nThousands are writing about ChatGPT… [+11194 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Interest in AI technology and, more specifically, OpenAIs ChatGPT product has skyrocketed in recent weeks. \r\nPeople are looking for information about both topics.\r\nThousands are writing about ChatGPT… [+11194 chars]"
         },
         {
             id: 41,
@@ -403,7 +480,9 @@ export const initialState = {
             url: "https://smallbiztrends.com/2023/01/small-business-cost-cutting.html",
             urlToImage: "https://media.smallbiztrends.com/2022/12/small-business-cost-cutting-tips.png",
             publishedAt: "2023-01-21T14:00:48Z",
-            content: "Small businesses often have small budgets to work with. This means you have to get more done with fewer resources. And youre often left with less time each day as a result. Luckily, members of the on… [+3367 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Small businesses often have small budgets to work with. This means you have to get more done with fewer resources. And youre often left with less time each day as a result. Luckily, members of the on… [+3367 chars]"
         },
         {
             id: 42,
@@ -413,7 +492,9 @@ export const initialState = {
             url: "https://ahelwer.ca/post/2023-02-07-cpp-bugs-sanitized/",
             urlToImage: "https://ahelwer.ca/img/profile-2022.jpg",
             publishedAt: "2023-02-08T09:42:28Z",
-            content: "A few days ago I published a short post about two bugs I wrote while developing the C++ external scanner for my TLA tree-sitter grammar.\r\nReactions were mixed!\r\nMany people were supportive, but there… [+13388 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "A few days ago I published a short post about two bugs I wrote while developing the C++ external scanner for my TLA tree-sitter grammar.\r\nReactions were mixed!\r\nMany people were supportive, but there… [+13388 chars]"
         },
         {
             id: 43,
@@ -423,7 +504,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/google-headings-with-hierarchical-structure-an-awesome-idea/478491/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/02/heading-elements-google-63dceb46d7b52-sej.jpg",
             publishedAt: "2023-02-03T11:21:23Z",
-            content: "Google’s John Mueller discussed heading elements with a member of the SEO community where he affirmed the usefulness of using hierarchical structure when using heading elements.\r\nBackground Context t… [+5093 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Google’s John Mueller discussed heading elements with a member of the SEO community where he affirmed the usefulness of using hierarchical structure when using heading elements.\r\nBackground Context t… [+5093 chars]"
         },
         {
             id: 44,
@@ -433,7 +516,9 @@ export const initialState = {
             url: "https://digg.com/data-viz/link/burning-questions-americans-have-about-each-other-and-ask-about-other-countries-mapped-dh3jQQGY4p",
             urlToImage: "https://cdn.digg.com/submitted-links/1675966337-fr0rn73gi0.jpg",
             publishedAt: "2023-02-09T18:31:58Z",
-            content: "Guauging curiosity is always a difficult task when it comes to groups. Using targetted keyword searches, the folks at SavingSpot used an open-ended question (\"why does...\") to see what kind of result… [+854 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Guauging curiosity is always a difficult task when it comes to groups. Using targetted keyword searches, the folks at SavingSpot used an open-ended question (\"why does...\") to see what kind of result… [+854 chars]"
         },
         {
             id: 45,
@@ -443,7 +528,9 @@ export const initialState = {
             url: "https://verdagon.dev/blog/when-to-use-memory-safe-part-2",
             urlToImage: null,
             publishedAt: "2023-01-17T08:06:14Z",
-            content: "Borrow Checking and Beyond\r\nA lot of languages are working on borrow checking blends that are better for development velocity.\r\nSome languages are using it under the hood:\r\n<ul><li>Lobster is using b… [+9201 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Borrow Checking and Beyond\r\nA lot of languages are working on borrow checking blends that are better for development velocity.\r\nSome languages are using it under the hood:\r\n<ul><li>Lobster is using b… [+9201 chars]"
         },
         {
             id: 46,
@@ -453,7 +540,9 @@ export const initialState = {
             url: "https://hardiksachan.com/kotlin-data-classes-101-understanding-syntax-usage-and-inheritance",
             urlToImage: "https://hashnode.com/utility/r?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1674901426825%2F3bb7e18f-baf8-470d-99a4-5ec6fcc9676c.png%3Fw%3D1200%26h%3D630%26fit%3Dcrop%26crop%3Dentropy%26auto%3Dcompress%2Cformat%26format%3Dwebp%26fm%3Dpng",
             publishedAt: "2023-01-28T10:27:20Z",
-            content: "Welcome back to this series of articles on Android Development with Kotlin and Jetpack Compose. In the previous article, we discussed the type system in Kotlin along with null safety. In this article… [+8028 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Welcome back to this series of articles on Android Development with Kotlin and Jetpack Compose. In the previous article, we discussed the type system in Kotlin along with null safety. In this article… [+8028 chars]"
         },
         {
             id: 47,
@@ -463,7 +552,9 @@ export const initialState = {
             url: "https://www.searchenginejournal.com/how-to-optimize-website-architecture-for-seo/477179/",
             urlToImage: "https://cdn.searchenginejournal.com/wp-content/uploads/2023/01/website-architecture-63d0fdc577f73-sej.png",
             publishedAt: "2023-02-06T10:00:39Z",
-            content: "When people talk about high-priority SEO activities, they usually point to crucial areas like keyword research, content planning, and link-building.\r\nWebsite architecture is rarely top of the list.\r\n… [+12752 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "When people talk about high-priority SEO activities, they usually point to crucial areas like keyword research, content planning, and link-building.\r\nWebsite architecture is rarely top of the list.\r\n… [+12752 chars]"
         },
         {
             id: 48,
@@ -473,7 +564,9 @@ export const initialState = {
             url: "https://www.windowscentral.com/microsoft/major-leak-reveals-revolutionary-new-version-of-microsoft-bing-powered-by-chatgpt-4-ai",
             urlToImage: "https://cdn.mos.cms.futurecdn.net/VHVxeZTgfGHhqB2aG7pYUm-1200-80.jpg",
             publishedAt: "2023-02-03T21:48:45Z",
-            content: "What you need to know\r\n<ul><li>Microsoft is preparing to launch a revolutionary new version of Bing.</li><li>The new Bing went live briefly earlier today and revealed ChatGPT-4 integration.</li><li>N… [+2594 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "What you need to know\r\n<ul><li>Microsoft is preparing to launch a revolutionary new version of Bing.</li><li>The new Bing went live briefly earlier today and revealed ChatGPT-4 integration.</li><li>N… [+2594 chars]"
         },
         {
             id: 49,
@@ -483,7 +576,9 @@ export const initialState = {
             url: "https://matplotlib.org/stable/users/prev_whats_new/whats_new_3.7.0.html",
             urlToImage: null,
             publishedAt: "2023-02-15T12:31:53Z",
-            content: "pie now accepts a hatch keyword that takes as input\r\na hatch or list of hatches:\r\nfig,(ax1,ax2)=plt.subplots(ncols=2)x=[10,30,60]ax1.pie(x,hatch=['.','o','O'])ax2.pie(x,hatch='.O')ax1.set_title(\"hatc… [+5588 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "pie now accepts a hatch keyword that takes as input\r\na hatch or list of hatches:\r\nfig,(ax1,ax2)=plt.subplots(ncols=2)x=[10,30,60]ax1.pie(x,hatch=['.','o','O'])ax2.pie(x,hatch='.O')ax1.set_title(\"hatc… [+5588 chars]"
         },
         {
             id: 50,
@@ -493,24 +588,27 @@ export const initialState = {
             url: "https://blog.feedly.com/keep-up-with-the-expansion-strategies-of-your-competitors/",
             urlToImage: "https://blog.feedly.com/wp-content/uploads/2023/01/Location-Expansions-Featured-Visual-1200x721.png",
             publishedAt: "2023-01-26T14:00:00Z",
-            content: "Know when your competitors are expanding to new locations so you are aware of when theyre making big moves.\r\nWe created a new Location Expansions Leo Model so you can monitor these automatically.\r\nST… [+541 chars]"
+            comments: [
+                { id: 1, text: 'OMG!' }
+            ], content: "Know when your competitors are expanding to new locations so you are aware of when theyre making big moves.\r\nWe created a new Location Expansions Leo Model so you can monitor these automatically.\r\nST… [+541 chars]"
         }
-    ]
+    ],
+
 };
 
 export const ContextApp = React.createContext(initialState);
 
 export const newsReducer = (state, action) => {
-    const {type,payload} = action
+    const { type, payload } = action
     switch (type) {
-        case GET_NEWS:
-            console.log(state)
+        case ADD_COMMENT:
+            let comment = {
+                id:2,
+                text:'text'
+            }
             return {
                 ...state,
-            };
-        case GET_PUBLICATION:
-            return{
-                news: state.news.filter(item=>item.id != payload)
+                publication:[]
             }
         default:
             return state

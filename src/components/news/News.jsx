@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
-import { ContextApp, GET_NEWS } from '../../reducers/newsReducer';
+import { useContext, useState } from 'react';
+import { ContextApp } from '../../reducers/newsReducer';
 import Card from './card/Card';
 import './news.css';
 
 let News = () => {
-    
+
     const { state,dispatch } = useContext(ContextApp)
 
     let [value, setValue] = useState('')
@@ -15,6 +15,7 @@ let News = () => {
     let searchInpute = state.news.filter(item => {
         return item.title.toLowerCase().includes(value.toLowerCase())
     })
+
     return (
         <div>
             <div className='container'>
@@ -29,7 +30,7 @@ let News = () => {
             <div className='news-wrapper'>
                 {searchInpute.map((item) => {
                     return (
-                        <Card item={item} key={item.id} truncateDescription={truncateDescription} />
+                        <Card dispatch={dispatch} item={item} key={item.id} truncateDescription={truncateDescription} />
                     )
                 })}
             </div>

@@ -14,7 +14,7 @@ function App() {
       <div>
         <div className='header'>
           <div className='header-item'>
-            <NavLink to={'/'}>
+            <NavLink to={'/'} style={{display:'block'}}>
               <img src={logo} className="App-logo" alt="logo" />
             </NavLink>
           </div>
