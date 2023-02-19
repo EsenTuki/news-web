@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useContext } from "react";
-import { ADD_COMMENT, ContextApp } from "../../reducers/newsReducer";
+import { ADD_COMMENT,UPDATE_COMMENT, ContextApp } from "../../reducers/newsReducer";
 import './publication.css';
 import Comments from "./comments/Comments";
 
@@ -29,16 +29,28 @@ let Publication = () => {
         setComment('')
         dispatch({ type: ADD_COMMENT, payload })
     }
+
+    let updateComment = (comment) => {
+        let payload = comment
+        dispatch({ type: UPDATE_COMMENT, payload })
+    }
+
     return (
         <div className="container">
             <h1 className="publication-header"><b>{data.title}</b></h1>
             <div className="publication-info">
                 <img className="publication-img" src={data.urlToImage} />
-                <p className="pubclication-content"><b>{data.description}</b></p>
+                <p className="pubclication-description"><b>{data.description}</b></p>
             </div>
             <p className="pubclication-content">{data.content}</p>
 
-            <Comments comments={comments} handleChange={handleChange} addComment={addComment} comment={comment} />
+            <Comments 
+            comments={comments} 
+            handleChange={handleChange} 
+            addComment={addComment} 
+            comment={comment} 
+            updateComment={updateComment}
+            />
         </div>
     );
 }
