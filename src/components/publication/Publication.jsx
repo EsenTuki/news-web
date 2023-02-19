@@ -1,33 +1,44 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { ADD_COMMENT, ContextApp } from "../../reducers/newsReducer";
+import './publication.css';
+import Comments from "./comments/Comments";
 
 let Publication = () => {
     const { id } = useParams()
     const { dispatch, state } = useContext(ContextApp)
+    const [comment, setComment] = useState('')
 
-    let data = state.news.filter(item => item.id == id)
+    let data = state.news.find(item => item.id == id)
+    let comments = state.comments.filter(item => item.publication_id == id)
 
-    let addComment = () =>{
-        dispatch({type:ADD_COMMENT})
+    let payload = {
+        id: id,
+        comment: {
+            id: state.comments ? state.comments.length + 1 : 2,
+            text: comment,
+            publication_id: id
+        }
     }
-    console.log('data',data)
+
+    let handleChange = ({ target: { value } }) => {
+        setComment(value)
+    }
+
+    let addComment = () => {
+        setComment('')
+        dispatch({ type: ADD_COMMENT, payload })
+    }
     return (
         <div className="container">
-            <h1 style={{ borderBottom: "1px solid #ddd" }}><b>{data[0].title}</b></h1>
-            <img style={{ width: "40%" }} src={data[0].urlToImage} />
-            <p style={{ fontSize: "20px" }}>{data[0].content}</p>
-            <div>
-                <div>
-                    <textarea /> <button onClick={addComment}>Add</button>
-                </div>
-                <div>
-                    {data[0].comments.map((item) => <div key={item.id}>
-                        {item.text}
-                    </div>)}
-                </div>
-
+            <h1 className="publication-header"><b>{data.title}</b></h1>
+            <div className="publication-info">
+                <img className="publication-img" src={data.urlToImage} />
+                <p className="pubclication-content"><b>{data.description}</b></p>
             </div>
+            <p className="pubclication-content">{data.content}</p>
+
+            <Comments comments={comments} handleChange={handleChange} addComment={addComment} comment={comment} />
         </div>
     );
 }

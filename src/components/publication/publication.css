@@ -1,0 +1,13 @@
+.publication-header{
+    border-bottom: 1px solid #ddd
+}
+.publication-info{
+    display: flex;
+    align-items: center;
+}
+.publication-img{
+    width: 60%
+}
+.pubclication-content{
+    font-size: 20px
+}
