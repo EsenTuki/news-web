@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { ContextApp } from '../../reducers/newsReducer';
 import Paginator from '../paginator/Paginator';
 import Card from './card/Card';
@@ -38,7 +38,7 @@ let News = () => {
             <div className='news-wrapper'>
                 {currentNews.map((item) => {
                     return (
-                        <Card dispatch={dispatch}
+                        <Card
                             item={item} key={item.id}
                             truncateDescription={truncateDescription}
                         />

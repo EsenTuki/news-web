@@ -2,6 +2,8 @@ import React from "react";
 
 export let ADD_COMMENT = 'ADD-COMMENT'
 export let UPDATE_COMMENT = 'UPDATE-COMMENT'
+export let LOGIN = 'LOGIN'
+export let LOGOUT = 'LOGOUT'
 
 export const initialState = {
     news: [
@@ -502,7 +504,15 @@ export const initialState = {
             publication_id: 1,
             text: 'WOW!'
         }
-    ]
+    ],
+    users: [
+        {
+            id: 1,
+            login: 'Sagyndyk',
+            password: '123456'
+        }
+    ],
+    authorizedUserId: null
 };
 
 export const ContextApp = React.createContext(initialState);
@@ -520,13 +530,23 @@ export const newsReducer = (state, action) => {
             }
         case UPDATE_COMMENT:
             let index = state.comments.findIndex(comment => comment.id == payload.id)
-            let comment = state.comments.splice(index,1,payload)
+            let comment = state.comments.splice(index, 1, payload)
             return {
                 ...state,
-                comments:[
+                comments: [
                     ...state.comments,
                     comment
                 ]
+            }
+        case LOGIN:
+            return {
+                ...state,
+                authorizedUserId: payload.id
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                authorizedUserId: null
             }
         default:
             return state
