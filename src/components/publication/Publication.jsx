@@ -6,18 +6,20 @@ import Comments from "./comments/Comments";
 
 let Publication = () => {
     const { id } = useParams()
-    const { dispatch, state } = useContext(ContextApp)
+    const { dispatch, state:{news, comments, authorizedUserId} } = useContext(ContextApp)
     const [comment, setComment] = useState('')
 
-    let data = state.news.find(item => item.id == id)
-    let comments = state.comments.filter(item => item.publication_id == id)
+    let data = news.find(item => item.id == id)
+    let publicationComments = comments.filter(item => item.publication_id == id)
 
     let payload = {
         id: id,
         comment: {
-            id: state.comments ? state.comments.length + 1 : 2,
+            id: comments ? comments.length + 1 : 2,
             text: comment,
-            publication_id: id
+            publication_id: id,
+            user_id:authorizedUserId.id,
+            login:authorizedUserId.login
         }
     }
 
@@ -45,11 +47,12 @@ let Publication = () => {
             <p className="pubclication-content">{data.content}</p>
 
             <Comments 
-            comments={comments} 
+            comments={publicationComments} 
             handleChange={handleChange} 
             addComment={addComment} 
             comment={comment} 
             updateComment={updateComment}
+            authorizedUserId={authorizedUserId}
             />
         </div>
     );

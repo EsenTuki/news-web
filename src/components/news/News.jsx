@@ -5,7 +5,7 @@ import Card from './card/Card';
 import './news.css';
 
 let News = () => {
-    const { state: { news }, dispatch } = useContext(ContextApp)
+    const { state: { news } } = useContext(ContextApp)
 
     const [value, setValue] = useState('')
     const [currentPage, setCurrentPage] = useState(1)

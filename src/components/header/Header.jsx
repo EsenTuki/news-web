@@ -15,7 +15,7 @@ let Header = ({ authorizedUserId, dispatch }) => {
                 </NavLink>
             </div>
             <div className='header-item'>
-                {authorizedUserId == null ?
+                {authorizedUserId.id == null ?
                     <NavLink to={'/login'} className='login-link'>
                         Sign in
                     </NavLink>

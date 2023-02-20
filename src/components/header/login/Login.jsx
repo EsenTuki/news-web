@@ -53,7 +53,7 @@ let Login = () => {
         console.log('user',user)
         if(user){
             setLoginError('')
-            dispatch({ type: LOGIN, payload: { id: user.id } })
+            dispatch({ type: LOGIN, payload: { id: user.id, login:login } })
         } else{
             setLoginError('Incorrect login or password')
             console.log('Nope')

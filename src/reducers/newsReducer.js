@@ -502,7 +502,9 @@ export const initialState = {
         {
             id: 1,
             publication_id: 1,
-            text: 'WOW!'
+            text: 'WOW!',
+            user_id:1,
+            login:'Sagyndyk'
         }
     ],
     users: [
@@ -512,7 +514,10 @@ export const initialState = {
             password: '123456'
         }
     ],
-    authorizedUserId: null
+    authorizedUserId:{
+        id:null,
+        login:''
+    }
 };
 
 export const ContextApp = React.createContext(initialState);
@@ -541,12 +546,18 @@ export const newsReducer = (state, action) => {
         case LOGIN:
             return {
                 ...state,
-                authorizedUserId: payload.id
+                authorizedUserId: {
+                    id:payload.id,
+                    login:payload.login
+                }
             }
         case LOGOUT:
             return {
                 ...state,
-                authorizedUserId: null
+                authorizedUserId: {
+                    id:null,
+                    login:''
+                }
             }
         default:
             return state

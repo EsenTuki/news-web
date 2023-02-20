@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path='/' element={<News />} />
             <Route path='/publication/:id' element={<Publication />} />
-            <Route path='/login' element={state.authorizedUserId == null ? <Login /> : <News />} />
+            <Route path='/login' element={state.authorizedUserId.id == null ? <Login /> : <News />} />
           </Routes>
         </ContextApp.Provider>
       </div>
